@@ -76,7 +76,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'EVERGRAND.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://evergrandautomobiles-production.up.railway.app/'
+    'https://evergrandautomobiles-production.up.railway.app'
 ]
 
 ALLOWED_HOSTS = [
