@@ -1,0 +1,483 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>EVERGRAND AUTOMOBILES</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block" >
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>9747772599</a>
+                    <span class="text-body">|</span>
+                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>evergrandautomobiles@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-body pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="position-relative px-lg-5" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-uppercase text-primary mb-1">EVERGRAND AUTOMOBILES</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="#index" class="nav-item nav-link active">Home</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#service" class="nav-item nav-link">Service</a>
+                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    
+    <div class="container-fluid bg-white pt-3 px-lg-5">
+        <form method="POST" action="{% url 'booking' %}">
+            {% csrf_token %}
+        <div class="row mx-n2">
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <select class="custom-select px-4 mb-3" style="height: 50px;" name="pickuplocation">
+                    <option selected>Pickup Location</option>
+                    <option value="kollam">Kollam</option>
+                    <option value="Koyilandy">Koyilandy</option>
+                    <option value="payyoli">payyoli</option>
+                    <option value="Nandi">Nandi</option>
+                    <option value="Vatakara">Vatakara</option>
+                    <option value="kozhikode">kozhikode</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <select class="custom-select px-4 mb-3" style="height: 50px;" name="droplocation">
+                    <option selected>Drop Location</option>
+                    <option value="Kollam">Kollam</option>
+                    <option value="Koyilandy">Koyilandy</option>
+                    <option value="payyoli">payyoli</option>
+                    <option value="Nandi">Nandi</option>
+                    <option value="Vatakara">Vatakara</option>
+                    <option value="kozhikode">kozhikode</option>
+                    <option value="Other">Other</option>
+                    
+                </select>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <div class="date mb-3" id="date" data-target-input="nearest">
+                    <input type="text" name="number" class="form-control p-4" placeholder="Mobile number"
+                         data-toggle="datetimepicker" />
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <div class="time mb-3" id="time" data-target-input="nearest" name="pickuptime">
+                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                        data-target="#time" data-toggle="datetimepicker" />
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <select class="custom-select px-4 mb-3" name="cartype" style="height: 50px;">
+                    <option selected>Select A Car</option>
+                    <option value="Maruti">Maruti</option>
+                    <option value="Cheverolet">Cheverolet</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Skoda">Skoda</option>
+                </select>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    
+
+    <div class="container-fluid p-0" style="margin-bottom: 90px;">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/car2.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h2 class="text-white text-uppercase mb-md-3"><span style="font-weight: 900;">EVERGRAND AUTOMOBILES</span></h2>
+                            <h5 class="display-1 text-white mb-md-4">MULTI-BRAND WORKSHOP</h5>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Know More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{% static 'img/car3.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3"><span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: 900;"></span></h4>
+                            <h1 class="display-1 text-white mb-md-4">Quality Cars with Unlimited Miles</h1>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5" id="about">
+        <div class="container pt-5 pb-3">
+            
+            <h1 class="display-4 text-uppercase text-center mb-5">Welcome To <span class="text-primary">Evergrand Automobiles</span></h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <img class="w-75 mb-4" src="{% static 'img/about.png' %}" alt="">
+                    <p> We are a trusted and reliable automobile workshop dedicated to providing top-quality automotive services to our <br>valued customers. 
+                        With a team of highly skilled technicians and a state-of-the-art facility, we offer a wide range of<br> services for all types of vehicles, ensuring their optimal performance,
+                         safety, and longevity. Our workshop specializes<br> in comprehensive automotive maintenance and repair services, catering to both individual vehicle owners and fleet<br> managers.
+                          Whether it's routine maintenance, minor repairs, or major overhauls, our experienced technicians have the<br> expertise and knowledge to handle any task with precision and efficiency. 
+                          We pride ourselves on our commitment to<br> customer satisfaction.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-headset text-secondary"></i>
+                        </div>
+                        <h4 class="text-uppercase m-0">24/7 Breakdown Support</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-car text-secondary"></i>
+                        </div>
+                        <h4 class="text-light text-uppercase m-0">Mechanical Works</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
+                            <i class="fa fa-2x fa-map-marker-alt text-secondary"></i>
+                        </div>
+                        <h4 class="text-uppercase m-0">Lots Of Pickup Locations</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <div class="container-fluid py-5" id="service">
+        <div class="container pt-5 pb-3">
+            
+            <h1 class="display-4 text-uppercase text-center mb-5">We offer</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-cogs text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">04</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Mechanical Works</h4>
+                        <p class="m-0 text-left">At Evergrand Automobiles, we take pride in delivering top-notch mechanical services to keep your vehicle running at its best. Our team of expert mechanics specializes in diagnostics, repairs, and maintenance for all types of cars, ensuring safety, efficiency, and long-term reliability.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-spray-can text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">05</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">Auto Painting</h4>
+                        <p class="m-0 text-left">Our automotive painting services provide a flawless finish to restore your car’s original shine or give it a brand-new look.Our painting services include full-body repainting, scratch and dent repairs, custom paint jobs, and protective coatings to enhance durability and maintain a flawless finish. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                                <i class="fa fa-2x fa-cogs text-secondary"></i>
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">04</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">AC & Electrical Works</h4>
+                        <p class="m-0 text-left">Additionally, our car AC services ensure optimal cooling and comfort with AC gas refilling, leak detection and repair, compressor and condenser servicing, and filter cleaning. We use advanced diagnostic tools to identify issues and provide efficient, long-lasting solutions.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5"> 
+            <h1 class="display-4 text-uppercase text-center mb-5">Our works</h1>
+            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="{% static 'img/serv1.jpg' %}" alt="" style="width: 70px; height: auto;">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Painting</h4>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="{% static 'img/serv2.jpg' %}" alt="" style="width: 70px; height: auto;">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Insurance Claim</h4>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="{% static 'img/serv3.jpg' %}" alt="" style="width: 70px; height: auto;">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Restoration Works</h4>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="{% static 'img/serv4.jpg' %}" alt="" style="width: 70px; height: auto;">
+                    <div class="position-relative py-4">
+                        <h4 class="text-uppercase">Transmission Service</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Banner Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row mx-0">
+                <div class="col-lg-6 px-0">
+                    <div class="px-5 bg-secondary d-flex align-items-center justify-content-between" style="height: 350px;">
+                        <img class="img-fluid flex-shrink-0 ml-n5 w-50 mr-4" src="{% static 'img/banner-left.png' %}" alt="">
+                        <div class="text-right">
+                            <h3 class="text-uppercase text-light mb-3">Looking for a routine checkup? Drive in, drive out with confidence!</h3>
+                            <p class="mb-4 text-right"></p>
+                            <a class="btn btn-primary py-2 px-4" href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49">visit Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-0">
+                    <div class="px-5 bg-dark d-flex align-items-center justify-content-between" style="height: 350px;">
+                        <div class="text-left">
+                            <h3 class="text-uppercase text-light mb-3">Scratches? Faded paint? Let us bring back the showroom shine!</h3>
+                            <p class="mb-4"></p>
+                            <a class="btn btn-primary py-2 px-4" href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49">Visit now</a>
+                        </div>
+                        <img class="img-fluid flex-shrink-0 mr-n5 w-50 ml-4" src="{% static 'img/banner-right.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+           
+            <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep1.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Mechanical works</h4>
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep7.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Painting & Polishing</h4>                   
+                </div>             
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep2.png' %}" alt=""style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Genaral Repairs & service</h4>               
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep3.png' %}" alt=""style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Alignment check</h4>
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep4.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Towing Service</h4>                    
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep5.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Breakdown Support</h4>                    
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep8.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Electrical Works</h4>                   
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep9.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Insurance Claim</h4>                   
+                </div>
+                <div class="testimonial-item d-flex flex-column justify-content-center px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <img class="img-fluid ml-n4" src="{% static 'img/rep10.png' %}" alt="" style="width: 80px; height: auto;">
+                        <h1 class="display-2 text-white m-0 fa fa-quote-right"></h1>
+                    </div>
+                    <h4 class="text-uppercase mb-2">Restoration Works</h4>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5" id="contact">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Contact Us</h1>
+            <div class="row">
+                <div class="col-lg-7 mb-2">
+                    <div class="contact-form bg-light mb-4" style="padding: 30px;">
+                        <form  method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" name="name" placeholder="Your Name" required="required">
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input type="email" class="form-control p-4" name="email" placeholder="Your Email" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control p-4" name="phone" placeholder="phone" required="required">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control py-3 px-4" rows="5" name="message" placeholder="message" required="required"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary py-3 px-5" type="submit">Contact</button>
+                            </div>
+                        </form>
+                    </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-lg-5 mb-2">
+                    <div class="d-flex flex-column justify-content-center px-5 mb-4" style="height: 435px;">
+                        <img src="{% static 'img/logo.jpg' %}" alt="Company Logo" class="mb-3" style="width: 320px; height: auto;">                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->   
+    
+    
+    <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <p class="m-0 text-center text-body">Designed by <a href="">EVG</a></p>
+    </div>
+    
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
