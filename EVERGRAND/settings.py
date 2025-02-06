@@ -75,6 +75,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'EVERGRAND.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://evergrandautomobiles-production.up.railway.app/'
+]
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
