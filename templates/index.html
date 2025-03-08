@@ -70,6 +70,7 @@
                         <a href="#about" class="nav-item nav-link">About</a>
                         <a href="#service" class="nav-item nav-link">Service</a>
                         <a href="#contact" class="nav-item nav-link">Contact</a>
+                        <a href="{% url 'signup' %}" class="nav-item nav-link">Signup</a>
                     </div>
                 </div>
             </nav>
@@ -253,99 +254,6 @@
     </div>
     
     <!-- Service 3 - Bootstrap Brain Component -->
-<section class="py-5 py-xl-8">
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-          <h2 class="mb-4 display-5 text-center" id="service" >SERVICES</h2>
-          
-          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
-        </div>
-      </div>
-    </div>
-  
-    <div class="container overflow-hidden">
-      <div class="row gy-5 gx-md-4 gy-lg-0 gx-xxl-5 justify-content-center">
-        <div class="col-11 col-sm-6 col-lg-3">   
-          <h4 class="mb-3">Bodyshop Works</h4>
-          <p class="mb-3 text-secondary">we provide expert denting and painting services to restore your car’s original look. Our services include dent removal, full-body & custom painting, scratch & rust treatment, panel replacement, and paint protection.</p>
-          <a href="#!" class="fw-bold text-decoration-none link-primary">
-            Location
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-            </svg>
-          </a>
-        </div>
-        <div class="col-11 col-sm-6 col-lg-3">
-          <h4 class="mb-3">AC Works</h4>
-          <p class="mb-3 text-secondary"> We offer AC gas refilling, leak detection & repair, compressor & condenser servicing, filter cleaning, and complete AC diagnostics. Using advanced tools, we ensure optimal cooling and long-lasting performance. </p>
-          <a href="#!" class="fw-bold text-decoration-none link-primary">
-            Location
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-            </svg>
-          </a>
-        </div>
-        <div class="col-11 col-sm-6 col-lg-3">
-          <h4 class="mb-3">Routine Check-up</h4>
-          <p class="mb-3 text-secondary">Ensure your vehicle’s peak performance with our routine checkup services. We conduct engine diagnostics, fluid level checks, battery inspection, brake & tire assessment and overall safety inspection.</p>
-          <a href="#!" class="fw-bold text-decoration-none link-primary">
-            Location
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-            </svg>
-          </a>
-        </div>
-        <div class="col-11 col-sm-6 col-lg-3">
-          <h4 class="mb-3">Insurance Claims</h4>
-          <p class="mb-3 text-secondary">we make the insurance claim process hassle-free for you. Our experts assist with claim filing, damage assessment, documentation, and coordination with insurance providers to ensure a smooth settlement. </p>
-          <a href="#!" class="fw-bold text-decoration-none link-primary">
-            Location
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    </section>
-
-    
-
-    <!-- Team Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5"> 
-            <h1 class="display-4 text-uppercase text-center mb-5">Our works</h1>
-            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="{% static 'img/serv1.jpg' %}" alt="" style="width: 70px; height: auto;">
-                    <div class="position-relative py-4">
-                        <h4 class="text-uppercase">Painting</h4>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="{% static 'img/serv2.jpg' %}" alt="" style="width: 70px; height: auto;">
-                    <div class="position-relative py-4">
-                        <h4 class="text-uppercase">Insurance Claim</h4>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="{% static 'img/serv3.jpg' %}" alt="" style="width: 70px; height: auto;">
-                    <div class="position-relative py-4">
-                        <h4 class="text-uppercase">Restoration Works</h4>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <img class="img-fluid w-100" src="{% static 'img/serv4.jpg' %}" alt="" style="width: 70px; height: auto;">
-                    <div class="position-relative py-4">
-                        <h4 class="text-uppercase">Transmission Service</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
 
     <!-- Banner Start -->
     <div class="container-fluid py-5">
@@ -377,8 +285,66 @@
     <!-- Banner End -->
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
+    <section class="py-5 py-xl-8">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+              <h2 class="mb-4 display-5 text-center" id="service" >SERVICES</h2>
+              
+              <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+            </div>
+          </div>
+        </div>
+      
+        <div class="container overflow-hidden">
+          <div class="row gy-5 gx-md-4 gy-lg-0 gx-xxl-5 justify-content-center">
+            <div class="col-11 col-sm-6 col-lg-3">   
+              <h4 class="mb-3">Bodyshop Works</h4>
+              <p class="mb-3 text-secondary">we provide expert denting and painting services to restore your car’s original look. Our services include dent removal, full-body & custom painting, scratch & rust treatment, panel replacement, and paint protection.</p>
+              <a href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49" class="fw-bold text-decoration-none link-primary">
+                Location
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+              </a>
+            </div>
+            <div class="col-11 col-sm-6 col-lg-3">
+              <h4 class="mb-3">AC Works</h4>
+              <p class="mb-3 text-secondary"> We offer AC gas refilling, leak detection & repair, compressor & condenser servicing, filter cleaning, and complete AC diagnostics. Using advanced tools, we ensure optimal cooling and long-lasting performance. </p>
+              <a href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49" class="fw-bold text-decoration-none link-primary">
+                Location
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+              </a>
+            </div>
+            <div class="col-11 col-sm-6 col-lg-3">
+              <h4 class="mb-3">Routine Check-up</h4>
+              <p class="mb-3 text-secondary">Ensure your vehicle’s peak performance with our routine checkup services. We conduct engine diagnostics, fluid level checks, battery inspection, brake & tire assessment and overall safety inspection.</p>
+              <a href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49" class="fw-bold text-decoration-none link-primary">
+                Location
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+              </a>
+            </div>
+            <div class="col-11 col-sm-6 col-lg-3">
+              <h4 class="mb-3">Insurance Claims</h4>
+              <p class="mb-3 text-secondary">we make the insurance claim process hassle-free for you. Our experts assist with claim filing, damage assessment, documentation, and coordination with insurance providers to ensure a smooth settlement. </p>
+              <a href="https://maps.app.goo.gl/5xj88HtHYxTwrGu49" class="fw-bold text-decoration-none link-primary">
+                Location
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        </section>
+            
+
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5"  style="background-color: black;">
+    <div class="container-fluid py-5">
         <div class="container py-5">
            
             <h1 class="display-4 text-uppercase text-center mb-5"></h1>
