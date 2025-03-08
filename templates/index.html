@@ -18,14 +18,19 @@
     <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/services/service-3/assets/css/service-3.css">
 </head>
 
 <body>
     
-    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block" >
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block"  >
         <div class="row">
             <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
+                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>8075358533</a>
+                    <span class="text-body">|</span>
                     <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>9747772599</a>
                     <span class="text-body">|</span>
                     <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>evergrandautomobiles@gmail.com</a>
@@ -33,16 +38,10 @@
             </div>
             <div class="col-md-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-body px-3" href="">
+                    <a class="text-body px-3" href="https://www.instagram.com/evergrandautomobiles/">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a class="text-body px-3" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-body px-3" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-body px-3" href="">
+                    <a class="text-body px-3" href="https://www.instagram.com/evergrandautomobiles/">
                         <i class="fab fa-instagram"></i>
                     </a>
                     <a class="text-body pl-3" href="">
@@ -80,67 +79,95 @@
 
 
     
-    <div class="container-fluid bg-white pt-3 px-lg-5">
-        <form method="POST" action="{% url 'booking' %}">
-        {% csrf_token %}
-        <div class="row mx-n2">
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" style="height: 50px;" name="pickuplocation">
-                    <option selected>Pickup Location</option>
-                    <option value="kollam">Kollam</option>
-                    <option value="Koyilandy">Koyilandy</option>
-                    <option value="payyoli">payyoli</option>
-                    <option value="Nandi">Nandi</option>
-                    <option value="Vatakara">Vatakara</option>
-                    <option value="kozhikode">kozhikode</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" style="height: 50px;" name="droplocation">
-                    <option selected>Drop Location</option>
-                    <option value="Kollam">Kollam</option>
-                    <option value="Koyilandy">Koyilandy</option>
-                    <option value="payyoli">payyoli</option>
-                    <option value="Nandi">Nandi</option>
-                    <option value="Vatakara">Vatakara</option>
-                    <option value="kozhikode">kozhikode</option>
-                    <option value="Other">Other</option>
-                    
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <div class="date mb-3" id="date" data-target-input="nearest">
-                    <input type="text" name="number" class="form-control p-4" placeholder="Mobile number"
-                         data-toggle="datetimepicker" />
+    <div class="container-fluid bg-white pt-3 px-lg-5" >
+        <form method="POST" action="{% url 'booking' %}" >
+            {% csrf_token %}
+            <div class="row mx-n2">
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="pickuplocation" required>
+                        <option selected disabled>Pickup Location</option>
+                        <option value="kollam">Kollam</option>
+                        <option value="Koyilandy">Koyilandy</option>
+                        <option value="payyoli">Payyoli</option>
+                        <option value="Nandi">Nandi</option>
+                        <option value="Vatakara">Vatakara</option>
+                        <option value="kozhikode">Kozhikode</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+    
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" style="height: 50px;" name="droplocation" required>
+                        <option selected disabled>Drop Location</option>
+                        <option value="Kollam">Kollam</option>
+                        <option value="Koyilandy">Koyilandy</option>
+                        <option value="payyoli">Payyoli</option>
+                        <option value="Nandi">Nandi</option>
+                        <option value="Vatakara">Vatakara</option>
+                        <option value="kozhikode">Kozhikode</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+    
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <input type="tel" name="number" class="form-control p-4" placeholder="Mobile number" 
+                           pattern="[0-9]{10}" required title="Enter a valid 10-digit number"/>
+                </div>
+    
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <div class="time mb-3" id="time" data-target-input="nearest" name="pickuptime">
+                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                            data-target="#time" data-toggle="datetimepicker" />
+                    </div>
+                </div>
+    
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <select class="custom-select px-4 mb-3" name="cartype" style="height: 50px;" required>
+                        <option selected disabled>Model</option>
+                        <option value="Maruti">Maruti</option>
+                        <option value="Cheverolet">Cheverolet</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Skoda">Skoda</option>
+                    </select>
+                </div>
+    
+                <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+                    <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Submit</button>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <div class="time mb-3" id="time" data-target-input="nearest" name="pickuptime">
-                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
-                        data-target="#time" data-toggle="datetimepicker" />
+    
+            <!-- Alert Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                <div class="container-fluid px-0">  <!-- Full-width container -->
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} text-center m-0" role="alert" style="width: 100vw; border-radius: 0; font-size: 1.2rem; padding: 20px;">
+                        <h4 class="alert-heading">{% if message.tags == 'success' %}Booking Successful!{% else %}Oops! Something went wrong{% endif %}</h4>
+                        <p>{{ message }}</p>
+                        <hr>
+                        <p class="mb-0">Please check your email for booking confirmation.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" name="cartype" style="height: 50px;">
-                    <option selected>Select A Car</option>
-                    <option value="Maruti">Maruti</option>
-                    <option value="Cheverolet">Cheverolet</option>
-                    <option value="BMW">BMW</option>
-                    <option value="Mercedes">Mercedes</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Honda">Honda</option>
-                    <option value="Hyundai">Hyundai</option>
-                    <option value="Volkswagen">Volkswagen</option>
-                    <option value="Skoda">Skoda</option>
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Submit</button>
-            </div>
-        </div>
-    </form>
+                {% endfor %}
+            {% endif %}
+        </form>
     </div>
+    
+    <!-- Auto Dismiss Alerts After 4 Seconds -->
+    <script>
+        setTimeout(function() {
+            document.querySelectorAll('.alert').forEach(alert => {
+                alert.style.transition = "opacity 1s";
+                alert.style.opacity = "0";
+                setTimeout(() => alert.remove(), 1000);
+            });
+        }, 4000);
+    </script>
+    
     
 
     <div class="container-fluid p-0" style="margin-bottom: 90px;">
@@ -225,56 +252,65 @@
         </div>
     </div>
     
-
-
-    <div class="container-fluid py-5" id="service">
-        <div class="container pt-5 pb-3">
-            
-            <h1 class="display-4 text-uppercase text-center mb-5">We offer</h1>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
-                                <i class="fa fa-2x fa-cogs text-secondary"></i>
-                            </div>
-                            <h1 class="display-2 text-white mt-n2 m-0">04</h1>
-                        </div>
-                        <h4 class="text-uppercase mb-3">Mechanical Works</h4>
-                        <p class="m-0 text-left">At Evergrand Automobiles, we take pride in delivering top-notch mechanical services to keep your vehicle running at its best. Our team of expert mechanics specializes in diagnostics, repairs, and maintenance for all types of cars, ensuring safety, efficiency, and long-term reliability.</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
-                                <i class="fa fa-2x fa-spray-can text-secondary"></i>
-                            </div>
-                            <h1 class="display-2 text-white mt-n2 m-0">05</h1>
-                        </div>
-                        <h4 class="text-uppercase mb-3">Auto Painting</h4>
-                        <p class="m-0 text-left">Our automotive painting services provide a flawless finish to restore your car’s original shine or give it a brand-new look.Our painting services include full-body repainting, scratch and dent repairs, custom paint jobs, and protective coatings to enhance durability and maintain a flawless finish. </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-2">
-                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
-                                <i class="fa fa-2x fa-cogs text-secondary"></i>
-                            </div>
-                            <h1 class="display-2 text-white mt-n2 m-0">04</h1>
-                        </div>
-                        <h4 class="text-uppercase mb-3">AC & Electrical Works</h4>
-                        <p class="m-0 text-left">Additionally, our car AC services ensure optimal cooling and comfort with AC gas refilling, leak detection and repair, compressor and condenser servicing, and filter cleaning. We use advanced diagnostic tools to identify issues and provide efficient, long-lasting solutions.</p>
-
-                    </div>
-                </div>
-            </div>
+    <!-- Service 3 - Bootstrap Brain Component -->
+<section class="py-5 py-xl-8">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+          <h2 class="mb-4 display-5 text-center" id="service" >SERVICES</h2>
+          
+          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
         </div>
+      </div>
     </div>
-    <!-- Services End -->
+  
+    <div class="container overflow-hidden">
+      <div class="row gy-5 gx-md-4 gy-lg-0 gx-xxl-5 justify-content-center">
+        <div class="col-11 col-sm-6 col-lg-3">   
+          <h4 class="mb-3">Bodyshop Works</h4>
+          <p class="mb-3 text-secondary">we provide expert denting and painting services to restore your car’s original look. Our services include dent removal, full-body & custom painting, scratch & rust treatment, panel replacement, and paint protection.</p>
+          <a href="#!" class="fw-bold text-decoration-none link-primary">
+            Location
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-11 col-sm-6 col-lg-3">
+          <h4 class="mb-3">AC Works</h4>
+          <p class="mb-3 text-secondary"> We offer AC gas refilling, leak detection & repair, compressor & condenser servicing, filter cleaning, and complete AC diagnostics. Using advanced tools, we ensure optimal cooling and long-lasting performance. </p>
+          <a href="#!" class="fw-bold text-decoration-none link-primary">
+            Location
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-11 col-sm-6 col-lg-3">
+          <h4 class="mb-3">Routine Check-up</h4>
+          <p class="mb-3 text-secondary">Ensure your vehicle’s peak performance with our routine checkup services. We conduct engine diagnostics, fluid level checks, battery inspection, brake & tire assessment and overall safety inspection.</p>
+          <a href="#!" class="fw-bold text-decoration-none link-primary">
+            Location
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-11 col-sm-6 col-lg-3">
+          <h4 class="mb-3">Insurance Claims</h4>
+          <p class="mb-3 text-secondary">we make the insurance claim process hassle-free for you. Our experts assist with claim filing, damage assessment, documentation, and coordination with insurance providers to ensure a smooth settlement. </p>
+          <a href="#!" class="fw-bold text-decoration-none link-primary">
+            Location
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    </section>
 
+    
 
     <!-- Team Start -->
     <div class="container-fluid py-5">
@@ -339,13 +375,13 @@
         </div>
     </div>
     <!-- Banner End -->
-
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5"  style="background-color: black;">
         <div class="container py-5">
            
-            <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1>
+            <h1 class="display-4 text-uppercase text-center mb-5"></h1>
             <div class="owl-carousel testimonial-carousel">
                 <div class="testimonial-item d-flex flex-column justify-content-center px-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
@@ -420,10 +456,10 @@
     <div class="container-fluid py-5" id="contact">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-center mb-5">Contact Us</h1>
-            <div class="row">
+            <div class="row justify-content-center"> <!-- Center the row -->
                 <div class="col-lg-7 mb-2">
-                    <div class="contact-form bg-light mb-4" style="padding: 30px;">
-                        <form  method="POST" action="{% url 'contact' %}">
+                    <div class="contact-form bg-light mb-4 mx-auto" style="padding: 30px;"> <!-- Center the form -->
+                        <form method="POST" action="{% url 'contact' %}">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-6 form-group">
@@ -434,30 +470,34 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control p-4" name="phone" placeholder="phone" required="required">
+                                <input type="text" class="form-control p-4" name="phone" placeholder="Phone" required="required">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control py-3 px-4" rows="5" name="message" placeholder="message" required="required"></textarea>
+                                <textarea class="form-control py-3 px-4" rows="5" name="message" placeholder="Message" required="required"></textarea>
                             </div>
-                            <div>
+                            <div class="text-center"> <!-- Center button -->
                                 <button class="btn btn-primary py-3 px-5" type="submit">Contact</button>
                             </div>
                         </form>
                     </div>
                     {% if messages %}
                         {% for message in messages %}
-                            <div class="alert alert-success">{{ message }}</div>
+                        <div class="container-fluid px-0">  <!-- Full-width container -->
+                            <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} text-center m-0" role="alert" style="width: 100vw; border-radius: 0; font-size: 1.2rem; padding: 20px;">
+                                <h4 class="alert-heading">{% if message.tags == 'success' %}Thank you for connecting{% else %}Oops! Something went wrong{% endif %}</h4>
+                                <p>{{ message }}</p>
+                                <hr>
+                                <p class="mb-0">We will contact you soon.</p>
+                            </div>
+                        </div>
                         {% endfor %}
                     {% endif %}
-                </div>
-                <div class="col-lg-5 mb-2">
-                    <div class="d-flex flex-column justify-content-center px-5 mb-4" style="height: 435px;">
-                        <img src="{% static 'img/logo.jpg' %}" alt="Company Logo" class="mb-3" style="width: 320px; height: auto;">                     
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
     <!-- Contact End -->   
     
     

@@ -59,6 +59,11 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.http import HttpResponse
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.http import HttpResponse
+
 def booking_view(request):
     if request.method == "POST":
         pickup_location = request.POST.get("pickuplocation")
@@ -80,13 +85,15 @@ def booking_view(request):
         Please respond as soon as possible.
         """
         
-        host_email = "jkkurupp26@gmail.com"  # Replace with your Gmail (Sender)
-        admin_email = "vichithrandeeptham@gmail.com"    # Replace with Admin's email (Receiver)
+        host_email = "jkkurupp26@gmail.com"  
+        admin_email = "vichithrandeeptham@gmail.com"   
 
         try:
             send_mail(subject, message, host_email, [admin_email])
-            return HttpResponse("✅ Booking request sent successfully!")
+            messages.success(request, "✅ Booking request sent successfully! Please check your email for confirmation.")
         except Exception as e:
-            return HttpResponse(f"❌ Error sending email: {e}")
+            messages.error(request, f"❌ Error sending email: {e}")
+
+        return redirect("home")  # Redirect to home page
 
     return render(request, "index.html")
